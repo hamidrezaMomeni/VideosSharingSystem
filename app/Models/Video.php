@@ -7,6 +7,7 @@ use http\Env\Response;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use mysql_xdevapi\Collection;
@@ -37,5 +38,10 @@ class Video extends Model
     public function relatedVideos(int $count = 6)
     {
         return Video::all()->random($count);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }
