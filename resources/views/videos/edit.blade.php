@@ -31,6 +31,15 @@
                                 <label>تصویر بند انگشتی</label>
                                 <input type="text" name="thumbnail" value="{{ old('thumbnail', $video->thumbnail) }}" class="form-control" placeholder="تصویر بند انگشتی">
                             </div>
+                            <div class="col-md-6">
+                                <label for="category">دسته بندی</label>
+                                <select name="category_id" id="category" class="form-control">
+                                    <option value="">دسته بندی ها</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" {{ ($video->category_id == $category->id) ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="col-md-12">
                                 <label>توضیحات</label>
                                 <textarea name="description" class="form-control" placeholder="توضیحات" rows="5">{{ old('description', $video->description) }}</textarea>

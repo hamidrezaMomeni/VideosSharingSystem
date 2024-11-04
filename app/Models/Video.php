@@ -22,7 +22,8 @@ class Video extends Model
         'thumbnail',
         'length',
         'slug',
-        'description'
+        'description',
+        'category_id'
     ];
 
     public function getLengthInHumanAttribute(): string
