@@ -29,7 +29,7 @@ class VideosStoreRequest extends FormRequest
             'length' => ['required','int'],
             'slug' => ['required','unique:videos,slug','alpha_dash'],
             'description' => ['required'],
-            'category_id' => ['int']
+            'category_id' => ['required', 'int', 'exists:categories,id']
         ];
     }
 
@@ -39,10 +39,12 @@ class VideosStoreRequest extends FormRequest
             'name.required' => 'فیلد نام الزامی است',
             'url.required' => 'فیلد آدرس الزامی است',
             'thumbnail.required' => 'فیلد تصویر الزامی است',
-            'length.required' => 'فیلد ',
-            'slug.required' => '',
-            'slug.unique' => '',
-            'description.required' => '',
+            'length.required' => 'فیلد مدت زمان الزامی است',
+            'slug.required' => 'فیلد نام یکتا الزامی است',
+            'slug.unique' => 'فیلد نام یکتا تکراری است',
+            'description.required' => 'فیلد توضیحات الزامی است',
+            'category_id.required' => 'فیلد دسته بندی الزامی است',
+            'category_id.exists' => 'دسته بندی انتخاب شده نامعتبر است',
         ];
     }
 
