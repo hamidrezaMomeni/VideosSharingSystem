@@ -6,7 +6,7 @@
             <x-video-box :video="$video"></x-video-box>
         @endforeach
     </div>
-    <div class="text-center">
+    <div class="text-center" dir="ltr">
         {{ $videos->links() }}
     </div>
 @endsection
